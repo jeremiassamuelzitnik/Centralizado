@@ -1,5 +1,8 @@
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -ErrorAction SilentlyContinue
 Add-Type -assembly System.Windows.Forms
+Add-Type -AssemblyName PresentationCore,PresentationFramework
+
+Clear-Host
 
 #Declaramos los objetos y la ventana.
 $mainForm = New-Object System.Windows.Forms.Form
