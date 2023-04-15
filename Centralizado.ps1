@@ -14,7 +14,7 @@ $Button = New-Object System.Windows.Forms.Button
 function ventana()
 {
 #Creamos la ventana.
-$mainForm.Text = 'Jeremos-Software'
+$mainForm.Text = 'Jeremos Software'
 $mainForm.Width = 0
 $mainForm.Height = 0
 $mainForm.AutoSize = $true
@@ -40,7 +40,7 @@ function combobox()
 {
 #Creamos y ubicamos el ComboBox.
 
-$ComboBox.Width = 255
+$ComboBox.Width = 260
 $ComboBox.Location  = New-Object System.Drawing.Point(3,35)
 $ComboBox.TabIndex = 0
 #Agregamos los items al combo box.
@@ -56,7 +56,7 @@ $mainForm.Controls.Add($ComboBox)
 function progressbar()
 {
 $ProgressBar.Location = New-Object System.Drawing.Point(3,60)
-$ProgressBar.Width = 255
+$ProgressBar.Width = 260
 $ProgressBar.Style = "Marquee"
 $ProgressBar.MarqueeAnimationSpeed = 0
 $ProgressBar.Visible=$false
@@ -66,7 +66,7 @@ $mainForm.Controls.Add($ProgressBar);
 function boton()
 {
 #Creamos y ubicamos el Boton.
-$Button.Location = New-Object System.Drawing.Size(158,5)
+$Button.Location = New-Object System.Drawing.Size(163,5)
 $Button.Size = New-Object System.Drawing.Size(100,25)
 $Button.Text = "Ejectuar"
 
