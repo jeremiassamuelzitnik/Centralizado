@@ -115,6 +115,6 @@ boton
 #Accion del boton.
 $Button.Add_Click({ejecucion})
 
-
+Clear-Host
 #Ejecutamos la ventana.
 $mainForm.ShowDialog() 
