@@ -55,7 +55,7 @@ $mainForm.Controls.Add($ComboBox)
 }
 function progressbar()
 {
-$ProgressBar.Location     = New-Object System.Drawing.Point(3,60)
+$ProgressBar.Location = New-Object System.Drawing.Point(3,60)
 $ProgressBar.Width = 255
 $ProgressBar.Style = "Marquee"
 $ProgressBar.MarqueeAnimationSpeed = 0
@@ -88,13 +88,13 @@ if ($comboBox.SelectedIndex.Equals(0) = $true)
 
 elseif ($comboBox.SelectedIndex.Equals(1) = $true) 
 {
-Start-Process -wait Powershell "iwr -useb https://raw.githubusercontent.com/jeremiassamuelzitnik/Soporte/main/ScriptGeneral.ps1 | iex" -verb runas -WindowStyle Minimized
+Start-Process -Wait Powershell "iwr -useb https://raw.githubusercontent.com/jeremiassamuelzitnik/Soporte/main/ScriptGeneral.ps1 | iex" -verb runas -WindowStyle Minimized
 
 }
 
 elseif ($comboBox.SelectedIndex.Equals(2) = $true) 
 {
-Start-Process Powershell "iwr -useb https://raw.githubusercontent.com/jeremiassamuelzitnik/Updater/main/Instalador/Instalar.ps1 | iex" -verb runas -WindowStyle Minimized -ErrorAction Continue 
+Start-Process -Wait Powershell "iwr -useb https://raw.githubusercontent.com/jeremiassamuelzitnik/Updater/main/Instalador/Instalar.ps1 | iex" -verb runas -WindowStyle Minimized -ErrorAction Continue 
 }
 
 
