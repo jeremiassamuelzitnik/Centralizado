@@ -83,7 +83,7 @@ $ProgressBar.MarqueeAnimationSpeed=10
 
 if ($comboBox.SelectedIndex.Equals(0) = $true) 
 {
-[System.Windows.MessageBox]::Show("¡No se seleccionó nada!","Atención", "OK", "Warning")
+[System.Windows.MessageBox]::Show("No se ha seleccionado nada.","Atención", "OK", "Warning")
 }
 
 elseif ($comboBox.SelectedIndex.Equals(1) = $true) 
