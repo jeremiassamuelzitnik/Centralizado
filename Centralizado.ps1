@@ -14,7 +14,7 @@ $Button = New-Object System.Windows.Forms.Button
 function ventana()
 {
 #Creamos la ventana.
-$mainForm.Text = 'Jeremos Software'
+$mainForm.Text = 'Jeremos-Software'
 $mainForm.Width = 0
 $mainForm.Height = 0
 $mainForm.AutoSize = $true
