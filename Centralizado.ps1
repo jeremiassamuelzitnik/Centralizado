@@ -17,7 +17,7 @@ $mainForm.AutoSize = $true
 $mainForm.MaximizeBox = $false
 $mainForm.StartPosition = "CenterScreen"
 $mainForm.FormBorderStyle = [System.Windows.Forms.FormBorderStyle]::Fixed3D
-$mainForm.Icon = "$PSScriptRoot\Icono.ico"
+$mainForm.Icon = "https://github.com/jeremiassamuelzitnik/Centralizado/raw/main/Icono.ico"
 
 }
 function label()
