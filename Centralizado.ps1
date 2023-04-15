@@ -1,4 +1,4 @@
-﻿Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -ErrorAction SilentlyContinue
 Add-Type -assembly System.Windows.Forms
 
 #Declaramos los objetos y la ventana.
