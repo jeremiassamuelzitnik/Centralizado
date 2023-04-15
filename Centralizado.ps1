@@ -68,7 +68,7 @@ function boton()
 #Creamos y ubicamos el Boton.
 $Button.Location = New-Object System.Drawing.Size(163,5)
 $Button.Size = New-Object System.Drawing.Size(100,25)
-$Button.Text = "Ejectuar"
+$Button.Text = "Ejecutar"
 
 #Agregamos el Boton al main.
 $mainForm.Controls.Add($Button)
