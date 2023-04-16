@@ -1,6 +1,20 @@
+Write-Host "       ____________  ________  _______  _____
+      / / ____/ __ \/ ____/  |/  / __ \/ ___/
+ __  / / __/ / /_/ / __/ / /|_/ / / / /\__ \ 
+/ /_/ / /___/ _, _/ /___/ /  / / /_/ /___/ / 
+\____/_____/_/ |_/_____/_/  /_/\____//____/  
+                                             
+             ________ __ ____  _     
+            /_  __/ //_// __ )(_)___ 
+             / / / ,<  / __  / / __ \
+            / / / /| |/ /_/ / / /_/ /
+           /_/ /_/ |_/_____/_/\____/ "
+Start-Sleep -Seconds 3
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -ErrorAction SilentlyContinue
 Add-Type -assembly System.Windows.Forms
 Add-Type -AssemblyName PresentationCore,PresentationFramework
+
+
 
 #Minimizamos la ventana.
 $sig='[DllImport("user32.dll")] public static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);'
