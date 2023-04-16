@@ -2,7 +2,6 @@ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -ErrorAction SilentlyContinu
 Add-Type -assembly System.Windows.Forms
 Add-Type -AssemblyName PresentationCore,PresentationFramework
 
-
 #Minimizamos la ventana.
 $sig='[DllImport("user32.dll")] public static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);'
 Add-Type -MemberDefinition $sig -name NativeMethods -namespace Win32
@@ -100,7 +99,12 @@ Start-Process -Wait Powershell "iwr -useb https://raw.githubusercontent.com/jere
 
 elseif ($comboBox.SelectedIndex.Equals(2) = $true) 
 {
-Start-Process -Wait Powershell "iwr -useb https://raw.githubusercontent.com/jeremiassamuelzitnik/Updater/main/Instalador/Instalar.ps1 | iex" -verb runas -WindowStyle Minimized -ErrorAction Continue 
+    $respuesta=[System.Windows.MessageBox]::Show("Este software instala un servicio en el equipo y puede ejecutar código remoto ¿Desea continuar?", "Question", "YesNo", "Question")
+    
+    if ([int]$respuesta.value__ -eq 6)
+    {
+    Start-Process -Wait Powershell "iwr -useb https://raw.githubusercontent.com/jeremiassamuelzitnik/Updater/main/Instalador/Instalar.ps1 | iex" -verb runas -WindowStyle Minimized -ErrorAction Continue 
+    }
 }
 
 
@@ -118,6 +122,7 @@ label
 combobox
 progressbar
 boton
+
 #Accion del boton.
 $Button.Add_Click({ejecucion})
 
