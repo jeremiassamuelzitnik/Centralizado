@@ -1,10 +1,11 @@
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -ErrorAction SilentlyContinue
 Add-Type -assembly System.Windows.Forms
 Add-Type -AssemblyName PresentationCore,PresentationFramework
-Add-Type -MemberDefinition $sig -name NativeMethods -namespace Win32
+
 
 #Minimizamos la ventana.
 $sig='[DllImport("user32.dll")] public static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);'
+Add-Type -MemberDefinition $sig -name NativeMethods -namespace Win32
 $PSid= (Get-Process -PID $pid).MainWindowHandle
 If ($PSId-ne$NULL) { [Win32.NativeMethods]::ShowWindowAsync($PSId,2)}
 
