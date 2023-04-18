@@ -143,3 +143,5 @@ $Button.Add_Click({ejecucion})
 Clear-Host
 #Ejecutamos la ventana.
 $mainForm.ShowDialog() 
+
+Stop-Transcript
