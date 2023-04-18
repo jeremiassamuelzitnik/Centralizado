@@ -10,6 +10,10 @@ Write-Host "       ____________  ________  _______  _____
             / / / /| |/ /_/ / / /_/ /
            /_/ /_/ |_/_____/_/\____/ "
 Start-Sleep -Seconds 3
+
+#Comenzamos a transcribir el script.
+Start-Transcript "$ENV:TEMP\Jeremos Software.log" -Append
+
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -ErrorAction SilentlyContinue
 Add-Type -assembly System.Windows.Forms
 Add-Type -AssemblyName PresentationCore,PresentationFramework
