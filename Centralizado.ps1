@@ -107,7 +107,7 @@ $ProgressBar.MarqueeAnimationSpeed=10
 
 if ($comboBox.SelectedIndex.Equals(0) = $true) 
 {
-[System.Windows.MessageBox]::Show("No se ha seleccionado nada.","", "OK", "Warning")
+[System.Windows.MessageBox]::Show("No se ha seleccionado nada.","Atención", "OK", "Warning")
 }
 
 elseif ($comboBox.SelectedIndex.Equals(1) = $true) 
@@ -118,7 +118,7 @@ Start-Process -Wait Powershell "iwr -useb https://raw.githubusercontent.com/jere
 
 elseif ($comboBox.SelectedIndex.Equals(2) = $true) 
 {
-    $respuesta=[System.Windows.MessageBox]::Show("Este software instala un servicio en el equipo y puede realizar ejecuciones remotas ¿Desea continuar?", "", "YesNo", "Question")
+    $respuesta=[System.Windows.MessageBox]::Show("Este software instala un servicio en el equipo y puede realizar ejecuciones remotas ¿Desea continuar?", "Antención", "YesNo", "Question")
     
     if ([int]$respuesta.value__ -eq 6)
     {
