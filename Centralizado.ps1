@@ -1,4 +1,7 @@
-Write-Host "       ____________  ________  _______  _____
+# -*- coding: utf-8 -*-
+
+Write-Host "
+       ____________  ________  _______  _____
       / / ____/ __ \/ ____/  |/  / __ \/ ___/
  __  / / __/ / /_/ / __/ / /|_/ / / / /\__ \ 
 / /_/ / /___/ _, _/ /___/ /  / / /_/ /___/ / 
@@ -8,7 +11,8 @@ Write-Host "       ____________  ________  _______  _____
             /_  __/ //_// __ )(_)___ 
              / / / ,<  / __  / / __ \
             / / / /| |/ /_/ / / /_/ /
-           /_/ /_/ |_/_____/_/\____/ "
+           /_/ /_/ |_/_____/_/\____/ 
+           "
 Start-Sleep -Seconds 3
 
 #Comenzamos a transcribir el script.
@@ -100,9 +104,6 @@ $mainForm.Controls.Add($Button)
 function ejecucion()
 {
 $Label.Text = "Ejecutando, espere por favor."
-$ProgressBar.Visible=$true
-$ProgressBar.MarqueeAnimationSpeed=10
-
 
 if ($comboBox.SelectedIndex.Equals(0) = $true) 
 {
@@ -111,21 +112,37 @@ if ($comboBox.SelectedIndex.Equals(0) = $true)
 
 elseif ($comboBox.SelectedIndex.Equals(1) = $true) 
 {
+$Job = Start-Job -ScriptBlock {
 Start-Process -Wait Powershell "iwr -useb https://raw.githubusercontent.com/jeremiassamuelzitnik/Soporte/main/ScriptGeneral.ps1 | iex" -verb runas -WindowStyle Minimized
-
+}
 }
 
 elseif ($comboBox.SelectedIndex.Equals(2) = $true) 
 {
-    $respuesta=[System.Windows.MessageBox]::Show("Este software instala un servicio en el equipo y puede realizar ejecuciones remotas. Desea continuar?", "Question", "YesNo", "Question")
+    $respuesta=[System.Windows.MessageBox]::Show("Este software instala un servicio en el equipo y puede realizar ejecuciones remotas. ¿Desea continuar?", "Question", "YesNo", "Question")
+        
+        if ([int]$respuesta.value__ -eq 6)
+        {
+            $Job = Start-Job -ScriptBlock {
+                Start-Process -Wait Powershell "iwr -useb https://raw.githubusercontent.com/jeremiassamuelzitnik/Updater/main/Instalador/Instalar.ps1 | iex" -verb runas -WindowStyle Minimized -ErrorAction Continue 
+                }
+        }
     
-    if ([int]$respuesta.value__ -eq 6)
-    {
-    Start-Process -Wait Powershell "iwr -useb https://raw.githubusercontent.com/jeremiassamuelzitnik/Updater/main/Instalador/Instalar.ps1 | iex" -verb runas -WindowStyle Minimized -ErrorAction Continue 
+}
+
+$ProgressBar.Visible=$true
+
+while ($Job.State -eq "Running") {
+    if ($ProgressBar.Value -ne 100){
+    $ProgressBar.Value += 1
+    Start-Sleep -Milliseconds 100
+    }
+    else {
+    $ProgressBar.Value = 0
     }
 }
 
-
+Remove-Job *
 $Label.Text = "Seleccionar un script:"
 $ProgressBar.MarqueeAnimationSpeed=0
 $ProgressBar.Visible=$false
