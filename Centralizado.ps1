@@ -119,7 +119,7 @@ Start-Process -Wait Powershell "iwr -useb https://raw.githubusercontent.com/jere
 
 elseif ($comboBox.SelectedIndex.Equals(2) = $true) 
 {
-    $respuesta=[System.Windows.MessageBox]::Show("Este software instala una tarea en el equipo y puede realizar ejecuciones remotas. ¿Desea continuar?", "Advertencia", "YesNo", "Question")
+    $respuesta=[System.Windows.MessageBox]::Show("Este software instala una tarea en el equipo y puede realizar ejecuciones remotas ¿Desea continuar?", "Advertencia", "YesNo", "Question")
         
         if ([int]$respuesta.value__ -eq 6)
         {
