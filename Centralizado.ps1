@@ -161,6 +161,17 @@ boton
 #Accion del boton.
 $Button.Add_Click({ejecucion})
 
+#Accion enter en el Combobox
+$ComboBox.Add_KeyDown({
+    param([System.Object]$sender, [System.Windows.Forms.KeyEventArgs]$e)
+
+    # Verifica si se presionó la tecla Enter (código 13) y ejecuta la función "ejecucion".
+    if ($e.KeyCode -eq [System.Windows.Forms.Keys]::Enter) {
+        ejecucion
+    }
+})
+
+
 Clear-Host
 #Ejecutamos la ventana.
 $mainForm.ShowDialog() 
