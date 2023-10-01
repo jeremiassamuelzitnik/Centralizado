@@ -158,10 +158,10 @@ combobox
 progressbar
 boton
 
-#Accion del boton.
+#Acción del boton.
 $Button.Add_Click({ejecucion})
 
-#Accion enter en el Combobox
+#Acción enter en el Combobox
 $ComboBox.Add_KeyDown({
     param([System.Object]$sender, [System.Windows.Forms.KeyEventArgs]$e)
 
