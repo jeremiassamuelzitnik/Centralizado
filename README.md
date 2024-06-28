@@ -1,4 +1,4 @@
 # Comando:
 ```PlainText
-Powershell "irm raw.githubusercontent.com/jeremiassamuelzitnik/Centralizado/main/Centralizado.ps1" | iex
+powershell "(New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/jeremiassamuelzitnik/Centralizado/main/Centralizado.ps1')|iex"
 ```
